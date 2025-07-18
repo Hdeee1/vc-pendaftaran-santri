@@ -31,11 +31,11 @@ export function StepNavigation({
         className="flex items-center gap-2"
       >
         <ArrowLeft className="w-4 h-4" />
-        Previous
+        Sebelumnya
       </Button>
 
       <div className="text-sm text-muted-foreground">
-        Step {currentStep} of {totalSteps}
+        Langkah {currentStep} dari {totalSteps}
       </div>
 
       <Button
@@ -44,7 +44,7 @@ export function StepNavigation({
         disabled={isNextDisabled || isLoading}
         className="flex items-center gap-2 bg-gradient-primary hover:bg-primary-hover"
       >
-        {isLastStep ? "Submit Registration" : "Next"}
+        {isLastStep ? "Kirim Pendaftaran" : "Selanjutnya"}
         {!isLastStep && <ArrowRight className="w-4 h-4" />}
       </Button>
     </div>

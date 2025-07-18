@@ -26,32 +26,32 @@ export function Step5SchoolInfo({ formData, updateFormData }: Step5Props) {
         <CardHeader className="bg-gradient-primary text-white rounded-t-lg">
           <CardTitle className="flex items-center gap-2">
             <GraduationCap className="w-5 h-5" />
-            Previous School Information
+            Informasi Sekolah Sebelumnya
           </CardTitle>
           <CardDescription className="text-white/80">
-            Please provide information about your previous school
+            Harap berikan informasi tentang sekolah sebelumnya
           </CardDescription>
         </CardHeader>
         <CardContent className="p-6">
           <div className="grid gap-6">
             <div className="space-y-2">
-              <Label htmlFor="schoolName">School Name <span className="text-destructive">*</span></Label>
+              <Label htmlFor="schoolName">Nama Sekolah <span className="text-destructive">*</span></Label>
               <Input
                 id="schoolName"
                 value={formData.schoolInfo?.schoolName || ""}
                 onChange={(e) => handleInputChange("schoolName", e.target.value)}
-                placeholder="Enter previous school name"
+                placeholder="Masukkan nama sekolah sebelumnya"
                 className="shadow-input"
               />
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="schoolAddress">School Address <span className="text-destructive">*</span></Label>
+              <Label htmlFor="schoolAddress">Alamat Sekolah <span className="text-destructive">*</span></Label>
               <Textarea
                 id="schoolAddress"
                 value={formData.schoolInfo?.schoolAddress || ""}
                 onChange={(e) => handleInputChange("schoolAddress", e.target.value)}
-                placeholder="Enter complete school address"
+                placeholder="Masukkan alamat lengkap sekolah"
                 className="shadow-input"
                 rows={3}
               />
@@ -62,14 +62,15 @@ export function Step5SchoolInfo({ formData, updateFormData }: Step5Props) {
                 <Label htmlFor="npsn">NPSN <span className="text-destructive">*</span></Label>
                 <Input
                   id="npsn"
+                  type="number"
                   value={formData.schoolInfo?.npsn || ""}
                   onChange={(e) => handleInputChange("npsn", e.target.value)}
-                  placeholder="Enter school NPSN"
+                  placeholder="Masukkan NPSN sekolah"
                   className="shadow-input"
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="graduationYear">Graduation Year <span className="text-destructive">*</span></Label>
+                <Label htmlFor="graduationYear">Tahun Lulus <span className="text-destructive">*</span></Label>
                 <Input
                   id="graduationYear"
                   type="number"
@@ -77,27 +78,29 @@ export function Step5SchoolInfo({ formData, updateFormData }: Step5Props) {
                   max="2030"
                   value={formData.schoolInfo?.graduationYear || ""}
                   onChange={(e) => handleInputChange("graduationYear", e.target.value)}
-                  placeholder="Enter graduation year"
+                  placeholder="Masukkan tahun lulus"
                   className="shadow-input"
                 />
               </div>
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="gpaOrGrades">GPA or Average Grades <span className="text-destructive">*</span></Label>
+              <Label htmlFor="gpaOrGrades">IPK atau Nilai Rata-rata <span className="text-destructive">*</span></Label>
               <Input
                 id="gpaOrGrades"
+                type="number"
+                step="0.01"
                 value={formData.schoolInfo?.gpaOrGrades || ""}
                 onChange={(e) => handleInputChange("gpaOrGrades", e.target.value)}
-                placeholder="Enter GPA (e.g., 3.5) or average grades (e.g., 85)"
+                placeholder="Masukkan IPK (mis. 3.5) atau nilai rata-rata (mis. 85)"
                 className="shadow-input"
               />
             </div>
 
             <div className="bg-accent/10 border border-accent/20 rounded-lg p-4">
               <p className="text-sm text-accent-foreground">
-                <strong>Note:</strong> Please ensure all information matches your official academic records. 
-                This information will be verified during the admission process.
+                <strong>Catatan:</strong> Pastikan semua informasi sesuai dengan catatan akademik resmi Anda. 
+                Informasi ini akan diverifikasi selama proses penerimaan.
               </p>
             </div>
           </div>

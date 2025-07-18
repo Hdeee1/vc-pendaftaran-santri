@@ -27,37 +27,37 @@ export function Step3Address({ formData, updateFormData }: Step3Props) {
         <CardHeader className="bg-gradient-primary text-white rounded-t-lg">
           <CardTitle className="flex items-center gap-2">
             <MapPin className="w-5 h-5" />
-            Address Information
+            Informasi Alamat
           </CardTitle>
           <CardDescription className="text-white/80">
-            Please provide your complete address details
+            Harap berikan detail alamat lengkap Anda
           </CardDescription>
         </CardHeader>
         <CardContent className="p-6">
           <div className="grid gap-6">
             <div className="space-y-2">
-              <Label htmlFor="residenceType">Type of Residence <span className="text-destructive">*</span></Label>
+              <Label htmlFor="residenceType">Jenis Tempat Tinggal <span className="text-destructive">*</span></Label>
               <Select value={formData.address?.residenceType || ""} onValueChange={(value) => handleInputChange("residenceType", value)}>
                 <SelectTrigger className="shadow-input">
-                  <SelectValue placeholder="Select residence type" />
+                  <SelectValue placeholder="Pilih jenis tempat tinggal" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="own">Own House</SelectItem>
-                  <SelectItem value="rent">Rental House</SelectItem>
-                  <SelectItem value="family">Family House</SelectItem>
-                  <SelectItem value="boarding">Boarding House</SelectItem>
-                  <SelectItem value="dormitory">Dormitory</SelectItem>
+                  <SelectItem value="own">Rumah Sendiri</SelectItem>
+                  <SelectItem value="rent">Rumah Sewa</SelectItem>
+                  <SelectItem value="family">Rumah Keluarga</SelectItem>
+                  <SelectItem value="boarding">Rumah Kos</SelectItem>
+                  <SelectItem value="dormitory">Asrama</SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="fullAddress">Full Address <span className="text-destructive">*</span></Label>
+              <Label htmlFor="fullAddress">Alamat Lengkap <span className="text-destructive">*</span></Label>
               <Textarea
                 id="fullAddress"
                 value={formData.address?.fullAddress || ""}
                 onChange={(e) => handleInputChange("fullAddress", e.target.value)}
-                placeholder="Enter complete address (street, house number, RT/RW)"
+                placeholder="Masukkan alamat lengkap (jalan, nomor rumah, RT/RW)"
                 className="shadow-input"
                 rows={3}
               />
@@ -65,22 +65,22 @@ export function Step3Address({ formData, updateFormData }: Step3Props) {
 
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="village">Village/Kelurahan <span className="text-destructive">*</span></Label>
+                <Label htmlFor="village">Desa/Kelurahan <span className="text-destructive">*</span></Label>
                 <Input
                   id="village"
                   value={formData.address?.village || ""}
                   onChange={(e) => handleInputChange("village", e.target.value)}
-                  placeholder="Enter village/kelurahan"
+                  placeholder="Masukkan desa/kelurahan"
                   className="shadow-input"
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="district">District/Kecamatan <span className="text-destructive">*</span></Label>
+                <Label htmlFor="district">Kecamatan <span className="text-destructive">*</span></Label>
                 <Input
                   id="district"
                   value={formData.address?.district || ""}
                   onChange={(e) => handleInputChange("district", e.target.value)}
-                  placeholder="Enter district/kecamatan"
+                  placeholder="Masukkan kecamatan"
                   className="shadow-input"
                 />
               </div>
@@ -88,22 +88,22 @@ export function Step3Address({ formData, updateFormData }: Step3Props) {
 
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="regency">Regency/Kabupaten <span className="text-destructive">*</span></Label>
+                <Label htmlFor="regency">Kabupaten/Kota <span className="text-destructive">*</span></Label>
                 <Input
                   id="regency"
                   value={formData.address?.regency || ""}
                   onChange={(e) => handleInputChange("regency", e.target.value)}
-                  placeholder="Enter regency/kabupaten"
+                  placeholder="Masukkan kabupaten/kota"
                   className="shadow-input"
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="province">Province <span className="text-destructive">*</span></Label>
+                <Label htmlFor="province">Provinsi <span className="text-destructive">*</span></Label>
                 <Input
                   id="province"
                   value={formData.address?.province || ""}
                   onChange={(e) => handleInputChange("province", e.target.value)}
-                  placeholder="Enter province"
+                  placeholder="Masukkan provinsi"
                   className="shadow-input"
                 />
               </div>
@@ -111,42 +111,43 @@ export function Step3Address({ formData, updateFormData }: Step3Props) {
 
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="postalCode">Postal Code <span className="text-destructive">*</span></Label>
+                <Label htmlFor="postalCode">Kode Pos <span className="text-destructive">*</span></Label>
                 <Input
                   id="postalCode"
+                  type="number"
                   value={formData.address?.postalCode || ""}
                   onChange={(e) => handleInputChange("postalCode", e.target.value)}
-                  placeholder="Enter postal code"
+                  placeholder="Masukkan kode pos"
                   className="shadow-input"
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="distanceToSchool">Distance to School (km)</Label>
+                <Label htmlFor="distanceToSchool">Jarak ke Sekolah (km)</Label>
                 <Input
                   id="distanceToSchool"
                   type="number"
                   step="0.1"
                   value={formData.address?.distanceToSchool || ""}
                   onChange={(e) => handleInputChange("distanceToSchool", e.target.value)}
-                  placeholder="Enter distance in km"
+                  placeholder="Masukkan jarak dalam km"
                   className="shadow-input"
                 />
               </div>
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="transportation">Transportation Used <span className="text-destructive">*</span></Label>
+              <Label htmlFor="transportation">Transportasi yang Digunakan <span className="text-destructive">*</span></Label>
               <Select value={formData.address?.transportation || ""} onValueChange={(value) => handleInputChange("transportation", value)}>
                 <SelectTrigger className="shadow-input">
-                  <SelectValue placeholder="Select transportation method" />
+                  <SelectValue placeholder="Pilih metode transportasi" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="walking">Walking</SelectItem>
-                  <SelectItem value="bicycle">Bicycle</SelectItem>
-                  <SelectItem value="motorcycle">Motorcycle</SelectItem>
-                  <SelectItem value="car">Car</SelectItem>
-                  <SelectItem value="public_transport">Public Transportation</SelectItem>
-                  <SelectItem value="school_bus">School Bus</SelectItem>
+                  <SelectItem value="walking">Jalan Kaki</SelectItem>
+                  <SelectItem value="bicycle">Sepeda</SelectItem>
+                  <SelectItem value="motorcycle">Sepeda Motor</SelectItem>
+                  <SelectItem value="car">Mobil</SelectItem>
+                  <SelectItem value="public_transport">Transportasi Umum</SelectItem>
+                  <SelectItem value="school_bus">Bus Sekolah</SelectItem>
                 </SelectContent>
               </Select>
             </div>

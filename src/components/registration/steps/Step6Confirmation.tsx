@@ -25,29 +25,29 @@ export function Step6Confirmation({ formData, updateFormData }: Step6Props) {
   const getValidationSummary = () => {
     const validations = [
       {
-        label: "Required documents uploaded",
+        label: "Dokumen wajib telah diisi",
         isValid: formData.documents?.familyCard && formData.documents?.nisn && formData.documents?.npsn && formData.documents?.paymentProof,
-        section: "Documents"
+        section: "Dokumen"
       },
       {
-        label: "Student information completed",
+        label: "Informasi siswa lengkap",
         isValid: formData.studentInfo?.fullName && formData.studentInfo?.nisn && formData.studentInfo?.nik,
-        section: "Student Info"
+        section: "Info Siswa"
       },
       {
-        label: "Address information provided",
+        label: "Informasi alamat tersedia",
         isValid: formData.address?.fullAddress && formData.address?.village && formData.address?.district,
-        section: "Address"
+        section: "Alamat"
       },
       {
-        label: "Parent information completed",
+        label: "Informasi orang tua lengkap",
         isValid: formData.parentInfo?.father?.name && formData.parentInfo?.mother?.name,
-        section: "Parent Info"
+        section: "Info Orang Tua"
       },
       {
-        label: "School information provided",
+        label: "Informasi sekolah tersedia",
         isValid: formData.schoolInfo?.schoolName && formData.schoolInfo?.npsn,
-        section: "School Info"
+        section: "Info Sekolah"
       }
     ];
     return validations;
@@ -62,17 +62,17 @@ export function Step6Confirmation({ formData, updateFormData }: Step6Props) {
         <CardHeader className="bg-gradient-primary text-white rounded-t-lg">
           <CardTitle className="flex items-center gap-2">
             <CheckCircle className="w-5 h-5" />
-            Final Confirmation
+            Konfirmasi Akhir
           </CardTitle>
           <CardDescription className="text-white/80">
-            Please review your information and confirm your registration
+            Harap tinjau informasi Anda dan konfirmasi pendaftaran
           </CardDescription>
         </CardHeader>
         <CardContent className="p-6">
           <div className="space-y-6">
             {/* Validation Summary */}
             <div>
-              <h3 className="font-semibold text-primary mb-4">Registration Summary</h3>
+              <h3 className="font-semibold text-primary mb-4">Ringkasan Pendaftaran</h3>
               <div className="space-y-3">
                 {validations.map((validation, index) => (
                   <div key={index} className="flex items-center justify-between p-3 rounded-lg border">
@@ -92,7 +92,7 @@ export function Step6Confirmation({ formData, updateFormData }: Step6Props) {
                         variant={validation.isValid ? "default" : "destructive"}
                         className={validation.isValid ? "bg-success" : ""}
                       >
-                        {validation.isValid ? "Complete" : "Incomplete"}
+                        {validation.isValid ? "Lengkap" : "Belum Lengkap"}
                       </Badge>
                     </div>
                   </div>
@@ -104,17 +104,17 @@ export function Step6Confirmation({ formData, updateFormData }: Step6Props) {
 
             {/* Application Summary */}
             <div>
-              <h3 className="font-semibold text-primary mb-4">Application Summary</h3>
+              <h3 className="font-semibold text-primary mb-4">Ringkasan Aplikasi</h3>
               <div className="grid gap-4">
                 {formData.studentInfo?.fullName && (
                   <div className="flex justify-between py-2">
-                    <span className="text-muted-foreground">Student Name:</span>
+                    <span className="text-muted-foreground">Nama Siswa:</span>
                     <span className="font-medium">{formData.studentInfo.fullName}</span>
                   </div>
                 )}
                 {formData.studentInfo?.educationLevel && (
                   <div className="flex justify-between py-2">
-                    <span className="text-muted-foreground">Education Level:</span>
+                    <span className="text-muted-foreground">Jenjang Pendidikan:</span>
                     <span className="font-medium">
                       {formData.studentInfo.educationLevel === 'mts' ? 'MTs (Madrasah Tsanawiyah)' : 'MA (Madrasah Aliyah)'}
                     </span>
@@ -122,13 +122,13 @@ export function Step6Confirmation({ formData, updateFormData }: Step6Props) {
                 )}
                 {formData.address?.village && (
                   <div className="flex justify-between py-2">
-                    <span className="text-muted-foreground">Location:</span>
+                    <span className="text-muted-foreground">Lokasi:</span>
                     <span className="font-medium">{formData.address.village}, {formData.address.district}</span>
                   </div>
                 )}
                 {formData.schoolInfo?.schoolName && (
                   <div className="flex justify-between py-2">
-                    <span className="text-muted-foreground">Previous School:</span>
+                    <span className="text-muted-foreground">Sekolah Sebelumnya:</span>
                     <span className="font-medium">{formData.schoolInfo.schoolName}</span>
                   </div>
                 )}
@@ -139,7 +139,7 @@ export function Step6Confirmation({ formData, updateFormData }: Step6Props) {
 
             {/* Agreement Checkboxes */}
             <div className="space-y-4">
-              <h3 className="font-semibold text-primary">Confirmation & Agreement</h3>
+              <h3 className="font-semibold text-primary">Konfirmasi & Persetujuan</h3>
               
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
@@ -149,8 +149,8 @@ export function Step6Confirmation({ formData, updateFormData }: Step6Props) {
                     onCheckedChange={(checked) => handleAgreementChange("dataAccuracy", checked as boolean)}
                   />
                   <Label htmlFor="dataAccuracy" className="text-sm leading-relaxed">
-                    I confirm that all information provided in this registration form is accurate and complete. 
-                    I understand that providing false information may result in rejection of my application.
+                    Saya mengkonfirmasi bahwa semua informasi yang diberikan dalam formulir pendaftaran ini akurat dan lengkap. 
+                    Saya memahami bahwa memberikan informasi palsu dapat mengakibatkan penolakan aplikasi saya.
                   </Label>
                 </div>
 
@@ -161,8 +161,8 @@ export function Step6Confirmation({ formData, updateFormData }: Step6Props) {
                     onCheckedChange={(checked) => handleAgreementChange("documentsValid", checked as boolean)}
                   />
                   <Label htmlFor="documentsValid" className="text-sm leading-relaxed">
-                    I confirm that all uploaded documents are valid, authentic, and belong to the applicant. 
-                    I understand that document verification will be conducted.
+                    Saya mengkonfirmasi bahwa semua nomor dokumen yang dimasukkan valid, asli, dan milik pelamar. 
+                    Saya memahami bahwa verifikasi dokumen akan dilakukan.
                   </Label>
                 </div>
 
@@ -173,8 +173,8 @@ export function Step6Confirmation({ formData, updateFormData }: Step6Props) {
                     onCheckedChange={(checked) => handleAgreementChange("termsAccepted", checked as boolean)}
                   />
                   <Label htmlFor="termsAccepted" className="text-sm leading-relaxed">
-                    I have read and agree to the terms and conditions of the registration process. 
-                    I understand that the registration fee is non-refundable.
+                    Saya telah membaca dan menyetujui syarat dan ketentuan proses pendaftaran. 
+                    Saya memahami bahwa biaya pendaftaran tidak dapat dikembalikan.
                   </Label>
                 </div>
 
@@ -185,8 +185,8 @@ export function Step6Confirmation({ formData, updateFormData }: Step6Props) {
                     onCheckedChange={(checked) => handleAgreementChange("communicationConsent", checked as boolean)}
                   />
                   <Label htmlFor="communicationConsent" className="text-sm leading-relaxed">
-                    I consent to receive communications regarding my application status via email, phone, or SMS. 
-                    I understand that my guardian will also be notified.
+                    Saya menyetujui untuk menerima komunikasi mengenai status aplikasi saya melalui email, telepon, atau SMS. 
+                    Saya memahami bahwa wali saya juga akan diberitahu.
                   </Label>
                 </div>
               </div>
@@ -196,10 +196,10 @@ export function Step6Confirmation({ formData, updateFormData }: Step6Props) {
               <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-4">
                 <div className="flex items-center gap-2 mb-2">
                   <AlertCircle className="w-5 h-5 text-destructive" />
-                  <span className="font-semibold text-destructive">Incomplete Information</span>
+                  <span className="font-semibold text-destructive">Informasi Belum Lengkap</span>
                 </div>
                 <p className="text-sm text-destructive">
-                  Please complete all required sections before submitting your registration.
+                  Harap lengkapi semua bagian yang diperlukan sebelum mengirim pendaftaran Anda.
                 </p>
               </div>
             )}
@@ -208,10 +208,10 @@ export function Step6Confirmation({ formData, updateFormData }: Step6Props) {
               <div className="bg-success/10 border border-success/20 rounded-lg p-4">
                 <div className="flex items-center gap-2 mb-2">
                   <CheckCircle className="w-5 h-5 text-success" />
-                  <span className="font-semibold text-success">Ready to Submit</span>
+                  <span className="font-semibold text-success">Siap untuk Dikirim</span>
                 </div>
                 <p className="text-sm text-success">
-                  Your registration form is complete and ready for submission.
+                  Formulir pendaftaran Anda lengkap dan siap untuk dikirim.
                 </p>
               </div>
             )}

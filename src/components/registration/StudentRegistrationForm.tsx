@@ -10,7 +10,7 @@ import { Step6Confirmation } from "./steps/Step6Confirmation";
 import { useToast } from "@/hooks/use-toast";
 
 interface FormData {
-  documents: Record<string, File | null>;
+  documents: Record<string, string>;
   studentInfo: Record<string, string>;
   address: Record<string, string>;
   parentInfo: {
@@ -28,12 +28,12 @@ interface FormData {
 }
 
 const STEP_TITLES = [
-  "Documents",
-  "Student Info", 
-  "Address",
-  "Parent Info",
-  "School Info",
-  "Confirmation"
+  "Dokumen",
+  "Info Siswa", 
+  "Alamat",
+  "Info Orang Tua",
+  "Info Sekolah",
+  "Konfirmasi"
 ];
 
 const TOTAL_STEPS = 6;
@@ -91,13 +91,13 @@ export function StudentRegistrationForm() {
     if (validateCurrentStep()) {
       setCurrentStep(prev => Math.min(prev + 1, TOTAL_STEPS));
       toast({
-        title: "Step completed!",
-        description: `Moving to step ${currentStep + 1}`,
+        title: "Langkah selesai!",
+        description: `Melanjutkan ke langkah ${currentStep + 1}`,
       });
     } else {
       toast({
-        title: "Incomplete information",
-        description: "Please fill in all required fields before proceeding.",
+        title: "Informasi belum lengkap",
+        description: "Harap isi semua kolom yang wajib diisi sebelum melanjutkan.",
         variant: "destructive",
       });
     }
@@ -114,8 +114,8 @@ export function StudentRegistrationForm() {
       await new Promise(resolve => setTimeout(resolve, 2000));
       
       toast({
-        title: "Registration submitted successfully!",
-        description: "Your application has been received. You will receive a confirmation email shortly.",
+        title: "Pendaftaran berhasil dikirim!",
+        description: "Aplikasi Anda telah diterima. Anda akan menerima email konfirmasi segera.",
         variant: "default",
       });
 
@@ -126,8 +126,8 @@ export function StudentRegistrationForm() {
       setCurrentStep(TOTAL_STEPS + 1); // Move to success state
     } catch (error) {
       toast({
-        title: "Submission failed",
-        description: "There was an error submitting your registration. Please try again.",
+        title: "Pengiriman gagal",
+        description: "Terjadi kesalahan saat mengirim pendaftaran. Silakan coba lagi.",
         variant: "destructive",
       });
     } finally {
@@ -155,8 +155,8 @@ export function StudentRegistrationForm() {
             <div className="bg-gradient-success text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
               ✓
             </div>
-            <h2 className="text-2xl font-bold text-primary mb-2">Registration Complete!</h2>
-            <p className="text-muted-foreground">Your application has been submitted successfully.</p>
+            <h2 className="text-2xl font-bold text-primary mb-2">Pendaftaran Selesai!</h2>
+            <p className="text-muted-foreground">Aplikasi Anda telah berhasil dikirim.</p>
           </div>
         );
     }
@@ -172,12 +172,12 @@ export function StudentRegistrationForm() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h1 className="text-2xl font-bold text-primary mb-4">Registration Successful!</h1>
+            <h1 className="text-2xl font-bold text-primary mb-4">Pendaftaran Berhasil!</h1>
             <p className="text-muted-foreground mb-6">
-              Your student registration has been submitted successfully. You will receive a confirmation email with further instructions.
+              Pendaftaran siswa Anda telah berhasil dikirim. Anda akan menerima email konfirmasi dengan instruksi lebih lanjut.
             </p>
             <p className="text-sm text-muted-foreground">
-              Application ID: <span className="font-mono font-semibold">REG-{Date.now()}</span>
+              ID Aplikasi: <span className="font-mono font-semibold">REG-{Date.now()}</span>
             </p>
           </div>
         </div>
@@ -189,8 +189,8 @@ export function StudentRegistrationForm() {
     <div className="min-h-screen bg-gradient-bg py-8 px-4">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-primary mb-2">Student Registration</h1>
-          <p className="text-muted-foreground">Complete all steps to submit your application</p>
+          <h1 className="text-3xl font-bold text-primary mb-2">Pendaftaran Siswa</h1>
+          <p className="text-muted-foreground">Lengkapi semua langkah untuk mengirim aplikasi Anda</p>
         </div>
 
         <div className="bg-card rounded-lg shadow-card p-6 mb-6">
