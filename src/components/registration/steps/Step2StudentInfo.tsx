@@ -27,10 +27,10 @@ export function Step2StudentInfo({ formData, updateFormData }: Step2Props) {
         <CardHeader className="bg-gradient-primary text-white rounded-t-lg">
           <CardTitle className="flex items-center gap-2">
             <User className="w-5 h-5" />
-            Informasi Siswa
+            Informasi Santri
           </CardTitle>
           <CardDescription className="text-white/80">
-            Harap berikan informasi lengkap tentang siswa
+            Harap berikan informasi lengkap tentang santri
           </CardDescription>
         </CardHeader>
         <CardContent className="p-6">

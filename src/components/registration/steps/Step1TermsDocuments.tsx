@@ -94,7 +94,6 @@ export function Step1TermsDocuments({ formData, updateFormData }: Step1Props) {
             <div>
               <h3 className="font-semibold text-primary mb-4 flex items-center gap-2">
                 Dokumen Opsional
-                <Badge variant="secondary">Opsional</Badge>
               </h3>
               <div className="grid gap-4">
                 {optionalDocuments.map((doc) => (

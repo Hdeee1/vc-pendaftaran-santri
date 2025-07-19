@@ -30,9 +30,9 @@ export function Step6Confirmation({ formData, updateFormData }: Step6Props) {
         section: "Dokumen"
       },
       {
-        label: "Informasi siswa lengkap",
+        label: "Informasi santri lengkap",
         isValid: formData.studentInfo?.fullName && formData.studentInfo?.nisn && formData.studentInfo?.nik,
-        section: "Info Siswa"
+        section: "Info Santri"
       },
       {
         label: "Informasi alamat tersedia",
@@ -108,7 +108,7 @@ export function Step6Confirmation({ formData, updateFormData }: Step6Props) {
               <div className="grid gap-4">
                 {formData.studentInfo?.fullName && (
                   <div className="flex justify-between py-2">
-                    <span className="text-muted-foreground">Nama Siswa:</span>
+                    <span className="text-muted-foreground">Nama Santri:</span>
                     <span className="font-medium">{formData.studentInfo.fullName}</span>
                   </div>
                 )}

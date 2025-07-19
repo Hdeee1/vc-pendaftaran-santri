@@ -29,7 +29,7 @@ interface FormData {
 
 const STEP_TITLES = [
   "Dokumen",
-  "Info Siswa", 
+  "Info Santri", 
   "Alamat",
   "Info Orang Tua",
   "Info Sekolah",
@@ -174,7 +174,7 @@ export function StudentRegistrationForm() {
             </div>
             <h1 className="text-2xl font-bold text-primary mb-4">Pendaftaran Berhasil!</h1>
             <p className="text-muted-foreground mb-6">
-              Pendaftaran siswa Anda telah berhasil dikirim. Anda akan menerima email konfirmasi dengan instruksi lebih lanjut.
+              Pendaftaran santri Anda telah berhasil dikirim. Anda akan menerima email konfirmasi dengan instruksi lebih lanjut.
             </p>
             <p className="text-sm text-muted-foreground">
               ID Aplikasi: <span className="font-mono font-semibold">REG-{Date.now()}</span>
@@ -189,7 +189,7 @@ export function StudentRegistrationForm() {
     <div className="min-h-screen bg-gradient-bg py-8 px-4">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-primary mb-2">Pendaftaran Siswa</h1>
+          <h1 className="text-3xl font-bold text-primary mb-2">Pendaftaran Santri</h1>
           <p className="text-muted-foreground">Lengkapi semua langkah untuk mengirim aplikasi Anda</p>
         </div>
 
